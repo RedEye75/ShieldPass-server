@@ -46,6 +46,16 @@ async function run() {
       console.log(result);
       res.send(result);
     });
+
+    app.get("/myPasswords/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = {
+        email: email,
+      };
+      const result = await passCollection.find(query).toArray();
+      console.log(result);
+      res.send(result);
+    });
   } finally {
   }
 }
